@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!--
+
+	Web Shop Chaos was written for Ludum Dare 40.
+
+	Engine/framework: 
+		- main.js, audio.js, index.html and style.css from Monster Tower
+		
+	Main tools used:
+		- gvim
+		- Inkscape
+		- Chrome
+		- webpack
+
+	License: GPL v2
+	Author: Leif Linse (leffe108 on GitHub)
+
+  -->
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Web Shop Chaos</title>
+
+		<!-- description -->
+		<meta name="description" content="" />
+
+		<!-- css -->
+		<link rel="stylesheet" type="text/css" href="css/style.css" media="all" />
+	</head>
+	<body>
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<div id="game" role="main" aria-live="polite">
+			<h1 class="visually-hidden">Web Shop Chaos</h1>
+			<p class="visually-hidden" id="game-aria-live-text"></p>
+
+			<div id="browser"
+				ondrop="OnDrop(event)"
+				ondragover="AllowDrop(event)"
+			>
+				<div id="browser-content">
+				</div>
+				<div id="browser-users">
+				</div>
+			</div>
+			<div id="toolbar">
+				<div class="tbox-element" id="tool-paragraph"
+					draggable="true"
+					ondragstart="OnDragStart(event, 'paragraph')"
+				>
+					Paragraph of boring text that takes a while to read.
+				</div>
+				<div class="tbox-element" id="tool-image-red"
+					draggable="true"
+					ondragstart="OnDragStart(event, 'image-red')"
+					title="Red cat image, makes red users happy"
+				>
+					<img src="images/image-red.png">
+				</div>
+				<div class="tbox-element" id="tool-image-blue"
+					draggable="true"
+					ondragstart="OnDragStart(event, 'image-blue')"
+					title="Blue cat image, makes blue users happy"
+				>
+					<img src="images/image-blue.png">
+				</div>
+				<div class="tbox-element" id="tool-cart"
+					draggable="true"
+					ondragstart="OnDragStart(event, 'cart')"
+					title="Cart - only happy users buy"
+				>
+					<img src="images/cart.png">
+				</div>
+			</div>
+			<div id="score">
+				Score: 1
+			</div>
+		</div>
+
+		<!-- Sound effects -->
+		<audio id="sound-effect-build">
+			<source src="audio/click.ogg" type="audio/ogg">
+		</audio>
+		<audio id="sound-effect-new-star">
+			<source src="audio/new-user.ogg" type="audio/ogg">
+		</audio>
+
+		<!-- Individual JS files -->
+		<script src="js/drag-n-drop.js"></script>
+		<script src="js/page.js"></script>
+		<script src="js/main.js"></script>
+
+		<!-- Combined JS bundle file -->
+		<!--
+		<script src="js/bundle.min.js"></script>
+		-->
+	</body>
+</html>
+
