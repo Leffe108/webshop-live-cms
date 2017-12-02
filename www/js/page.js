@@ -84,12 +84,11 @@ function RenderPage() {
 		div.style.left = g_elements[i].x + 'px';
 		div.style.top = g_elements[i].y + 'px';
 		div.draggable = true;
-		var element_idx = i;
 		(function() {
 			var j = i;
-		div.ondragstart = function(event) {
-			OnDragStart(event, type, j);
-		};
+			div.ondragstart = function(event) {
+				OnDragStart(event, type, j);
+			};
 		})();
 		if (type === 'paragraph') {
 			div.innerHTML = 'A long paragraph of text that gets more boring the longer you read.';
@@ -105,6 +104,18 @@ function RenderPage() {
 		g_elements[i].element = div;
 
 		browser.appendChild(div);
+	}
+}
+
+function UpdateToolboxUi() {
+	var types = ['paragraph', 'image-red', 'image-blue', 'cart'];
+	for (var i = 0; i < types.length; i++) {
+		var elem = document.getElementById('tool-' + types[i]);
+		if (GetElementCountLeft(types[i]) >= 1) {
+			elem.classList.remove('empty');
+		} else {
+			elem.classList.add('empty');
+		}
 	}
 }
 

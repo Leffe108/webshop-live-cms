@@ -14,13 +14,37 @@ var g_speed = 1;
 
 // Methods
 
-function InitGameState()
-{
+function InitGameState() {
 	g_elements = [];
+	g_users = [];
+	g_dirty_html = true;
 	g_current_time = 0;
 	g_next_new_user_time = 0;
 	g_speed = 20;
+	g_score = 0;
 	InitUsers();
+}
+
+function InitGui() {
+	var ab = document.getElementById('address-bar');
+	ab.value = window.location.href;
+
+	UpdateToolboxUi();
+}
+
+function OnRefreshClick() {
+	while (g_users.length > 0) {
+		DeleteUser(0);
+	}
+	Init();
+}
+
+function OnHelpClick() {
+	alert('Drag page elements from the right onto the page.\n\nMake users (pointers) happy by providing them content if the same color and then have them reach a buy button to cash in.');
+}
+
+function OnCloseClick() {
+	alert('Not implemented');
 }
 
 /**
@@ -40,6 +64,17 @@ function RenderScore() {
 	s.innerHTML = 'Score: ' + Math.floor(g_score);
 }
 
+function RenderTime() {
+	var t = document.getElementById('time');
+	s = Math.floor(g_current_time);
+	m = Math.floor(s / 60);
+	s -= m*60;
+
+	if (m < 10) m = '0' + m;
+	if (s < 10) s = '0' + s;
+	t.innerHTML = m + ':' + s;
+}
+
 // Main game loop
 function Main() {
 	var now = Date.now();
@@ -50,6 +85,7 @@ function Main() {
 	if (g_dirty_html) RenderHtml();
 	g_dirty_html = false;
 	RenderScore();
+	RenderTime();
 
 	g_last_loop = now;
 
@@ -65,6 +101,7 @@ function Main() {
 function Init() {
 	g_dirty_html = true;
 	InitGameState();
+	InitGui();
 
 	// Cross-browser support for requestAnimationFrame
 	var w = window;

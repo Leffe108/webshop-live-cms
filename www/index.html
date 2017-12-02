@@ -30,16 +30,24 @@
 	<body>
 		<script src="js/jquery-1.11.3.min.js"></script>
 		<div id="game" role="main" aria-live="polite">
-			<h1 class="visually-hidden">Web Shop Chaos</h1>
-			<p class="visually-hidden" id="game-aria-live-text"></p>
+			<h1>Web Shop Chaos</h1>
+			<div id="time"></div>
 
-			<div id="browser"
-				ondrop="OnDrop(event)"
-				ondragover="AllowDrop(event)"
-			>
-				<div id="browser-content">
+			<div id="browser-window">
+				<div id="browser-top-bar">
+					<img src="images/button-refresh.png" role="button" onclick="OnRefreshClick()" alt="Refresh" />
+					<input id="address-bar" type="text" disabled value="http://localhost" />
+					<img src="images/button-help.png" role="button" onclick="OnHelpClick()" alt="Help" />
+					<img src="images/button-close.png" role="button" onclick="OnCloseClick()" alt="Close" />
 				</div>
-				<div id="browser-users">
+				<div id="browser"
+					ondrop="OnDrop(event)"
+					ondragover="AllowDrop(event)"
+				>
+					<div id="browser-content">
+					</div>
+					<div id="browser-users">
+					</div>
 				</div>
 			</div>
 			<div id="toolbar">

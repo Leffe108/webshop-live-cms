@@ -54,4 +54,7 @@ function OnDrop(event) {
 	} else {
 		MoveElement(element, element_index, event.offsetX, event.offsetY);
 	}
+
+	// Element type may have become empty
+	UpdateToolboxUi();
 }
