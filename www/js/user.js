@@ -1,5 +1,8 @@
 /** Users **/
 
+/* exported InitUsers, NewUser, UpdateUsers, DeleteUser */
+/* global g_users:true, g_next_new_user_time:true, g_current_time, g_speed, g_score:true, g_lives:true, g_elements, PlaySoundEffect */
+
 function InitUsers() {
 	g_users = [];
 }
@@ -34,7 +37,7 @@ function NewUser() {
  * @param time Seconds since last Update
  */
 function UpdateUsers(time) {
-	browser = document.getElementById('browser');
+	var browser = document.getElementById('browser');
 
 	if (g_users.length === 0) {
 		NewUser();
@@ -58,7 +61,7 @@ function UpdateUsers(time) {
 				user.dx = -user.dx;
 			}
 
-			element = GetElementBelowUser(user);
+			var element = GetElementBelowUser(user);
 			if (element !== null) {
 				if (['image-red', 'image-yellow', 'image-blue'].indexOf(element.type) !== -1) {
 					if (element.type !== 'image-' + user.color) {
@@ -159,7 +162,7 @@ function DeleteUser(i) {
 }
 
 function GetElementBelowUser(user) {
-	browser = document.getElementById('browser');
+	var browser = document.getElementById('browser');
 
 	var elem = document.elementFromPoint(browser.offsetLeft + user.x, browser.offsetTop + user.y);
 	if (elem === null) return null;

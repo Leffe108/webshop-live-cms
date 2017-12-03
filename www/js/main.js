@@ -2,16 +2,22 @@
  * Main
  */
 
+/* exported g_elements, g_dirty_html, g_users, g_next_new_user_time, g_current_time, g_score, g_speed, g_lives, g_lost */
+/* exported OnCloseClick, OnHelpClick, OnRefreshClick */
+/* global InitUsers, RenderPage, UpdateToolboxUi, DeleteUser, UpdateUsers */
+
 // Global variables
 var g_elements = [];
 var g_dirty_html = false;
 var g_users = [];
 var g_next_new_user_time = 0;
 var g_current_time = 0;
+var g_last_loop = 0;
 var g_score = 0;
 var g_speed = 1;
 var g_lives = 3;
 var g_lost = false;
+var g_request_animation_frame_fn;
 
 
 // Methods
@@ -59,8 +65,6 @@ function OnCloseClick() {
  * @param time Seconds since last Update
  */
 function Update(time) {
-	var gui_time = time; // GUI time is not affected by speed modifier
-
 	if (!g_lost && g_lives <= 0) {
 		g_lost = true;
 
@@ -92,8 +96,8 @@ function RenderTime() {
 }
 
 function GetTimeStr() {
-	s = Math.floor(g_current_time);
-	m = Math.floor(s / 60);
+	var s = Math.floor(g_current_time);
+	var m = Math.floor(s / 60);
 	s -= m*60;
 
 	if (m < 10) m = '0' + m;

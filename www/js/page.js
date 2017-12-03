@@ -1,5 +1,8 @@
 /** Page **/
 
+/* exported AddElement, MoveElement, GetElementCountLeft, RenderPage, UpdateToolboxUi */
+/* global g_dirty_html:true, g_elements, OnDragStart */
+
 function AddElement(elementType, x, y) {
 	if (!CanPlaceElementHere(x, y)) return;
 	var r = SnapElementXY(x, y);

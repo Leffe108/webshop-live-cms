@@ -1,4 +1,7 @@
 
+/* exported OnDragStart, AllowDrop, OnDrop */
+/* global g_elements, GetElementCountLeft, AddElement, MoveElement, UpdateToolboxUi */
+
 function OnDragStart(event, elementType, existingElementIndex) {
 	// Forbid dragging from toolbar if there are no elements left to add
 	if (existingElementIndex === undefined && GetElementCountLeft(elementType) <= 0) {
