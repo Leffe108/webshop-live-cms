@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
 
-	Web Shop Chaos was written for Ludum Dare 40.
+	Webshop Live CMS was written for Ludum Dare 40.
 
 	Engine/framework: 
 		- main.js, audio.js, index.html and style.css from Monster Tower
@@ -19,10 +19,17 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8"/>
-		<title>Web Shop Chaos</title>
+		<title>Webshop Live CMS</title>
 
 		<!-- description -->
-		<meta name="description" content="" />
+		<meta name="description" content="A webshop game made for Ludum Dare 40" />
+
+		<!-- icon -->
+		<link rel="apple-touch-icon" href="http://junctioneer.net/webshop-live-cms/www-ld40/images/favicon.ico"/>
+		<meta name="msapplication-TileImage" content="http://junctioneer.net/webshop-live-cms/www-ld40/images/favicon.ico"/>
+		<meta name="msapplication-TileColor" content="#a6eb46"/>
+		<link rel="icon" type="image/ico" href="http://junctioneer.net/webshop-live-cms/www-ld40/images/favicon.ico"/>
+		<!--[if IE]><link rel="shortcut icon" href="http://junctioneer.net/webshop-live-cms/www-ld40/images/favicon.ico"><![endif]-->
 
 		<!-- css -->
 		<link rel="stylesheet" type="text/css" href="css/style.css" media="all" />
@@ -30,7 +37,7 @@
 	<body>
 		<script src="js/jquery-1.11.3.min.js"></script>
 		<div id="game" role="main" aria-live="polite">
-			<h1>Web Shop Chaos</h1>
+			<h1>Webshop Live CMS</h1>
 			<div id="time"></div>
 
 			<div id="browser-window">
@@ -51,6 +58,7 @@
 				</div>
 			</div>
 			<div id="toolbar">
+				<div class="title">&lt; Drag n drop</div>
 				<div class="tbox-element" id="tool-paragraph"
 					draggable="true"
 					ondragstart="OnDragStart(event, 'paragraph')"
@@ -60,16 +68,23 @@
 				<div class="tbox-element" id="tool-image-red"
 					draggable="true"
 					ondragstart="OnDragStart(event, 'image-red')"
-					title="Red cat image, makes red users happy"
+					title="Red cat picture, makes red users happy"
 				>
 					<img src="images/image-red.png">
 				</div>
 				<div class="tbox-element" id="tool-image-blue"
 					draggable="true"
 					ondragstart="OnDragStart(event, 'image-blue')"
-					title="Blue cat image, makes blue users happy"
+					title="Blue cat picture, makes blue users happy"
 				>
 					<img src="images/image-blue.png">
+				</div>
+				<div class="tbox-element" id="tool-image-yellow"
+					draggable="true"
+					ondragstart="OnDragStart(event, 'image-yellow')"
+					title="Blue cat picture, makes yellow users happy"
+				>
+					<img src="images/image-yellow.png">
 				</div>
 				<div class="tbox-element" id="tool-cart"
 					draggable="true"
@@ -85,22 +100,21 @@
 		</div>
 
 		<!-- Sound effects -->
-		<audio id="sound-effect-build">
+		<audio id="sound-effect-click">
 			<source src="audio/click.ogg" type="audio/ogg">
-		</audio>
-		<audio id="sound-effect-new-star">
-			<source src="audio/new-user.ogg" type="audio/ogg">
 		</audio>
 
 		<!-- Individual JS files -->
+		<!--
 		<script src="js/drag-n-drop.js"></script>
 		<script src="js/page.js"></script>
+		<script src="js/user.js"></script>
+		<script src="js/audio.js"></script>
 		<script src="js/main.js"></script>
+		-->
 
 		<!-- Combined JS bundle file -->
-		<!--
 		<script src="js/bundle.min.js"></script>
-		-->
 	</body>
 </html>
 
