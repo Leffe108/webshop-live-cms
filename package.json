@@ -1,0 +1,41 @@
+{
+  "name": "Webshop Live CMS",
+  "version": "1.0.0",
+  "description": "A game written for Ludum Dare 40",
+  "main": "",
+  "dependencies": {
+    "gulp": "^3.9.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.10.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-eslint": "^1.1.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.1",
+    "gulp-watch": "^4.3.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "leffe108",
+  "license": "GPL-2.0",
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "ecmaFeatures": {},
+    "env": {
+      "browser": true,
+      "jquery": true
+    },
+    "rules": {
+      "comma-dangle": [
+        2,
+        "always-multiline"
+      ],
+      "semi": [
+        2,
+        "always"
+      ]
+    }
+  }
+}
