@@ -66,6 +66,7 @@ h1 {
 	flex: 0;
 	align-self: center;
 	cursor: pointer;
+	height: 27px;
 }
 #browser-top-bar img:hover {
 	opacity: 0.8;
